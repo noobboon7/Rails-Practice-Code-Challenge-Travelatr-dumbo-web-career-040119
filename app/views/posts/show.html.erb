@@ -1,0 +1,17 @@
+<h1>My Posts</h1>
+<%= link_to "Edit #{ @post.title }", edit_post_path(@post) %>
+<hr>
+<h3> Title :<%= @post.title  %> </h3>
+<%= link_to "By #{@post.blogger.name}", blogger_path %>
+<h3> Likes: <%= @post.likes %> </h3>
+<h3> Destination: <%= link_to @post.destination.name, destination_path(@post.destination) %> </h3>
+<br>
+<h3> Content: <br><%= @post.content.gsub(/\[]/, '\\0') %> </h3>
+
+<br>
+<%= form_for @post do |f| %>
+<% likes = @post.likes %>
+<% likes += 1 %>
+<%= f.hidden_field :likes, value: likes %>
+<%= f.submit "Like Post" %>
+<% end %>

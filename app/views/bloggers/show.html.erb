@@ -1,0 +1,25 @@
+<h1>My Profile</h1>
+<%= link_to "Edit #{ @blogger.name }", edit_blogger_path(@blogger) %>
+<hr>
+<h3> Name :<%= @blogger.name %> </h3>
+<br>
+<h3> Bio: <%= @blogger.bio %> </h3>
+<br>
+<h3> Age: <%= @blogger.age %> </h3>
+
+<h3>Posts</h3>
+<hr>
+<h4>Featured Post</h4>
+<% likes = @blogger.posts.max_by{|p| p.likes} %>
+<%= link_to likes.title, post_path(likes) %>
+<ul>
+  <%= @blogger.posts.each do |p| %>
+  <h4>Title</h4>
+  <li><%= link_to p.title, post_path(p)%></li>
+  <h4>Content</h4>
+  <li><%= p.content %></li>
+  <h4>Likes</h4>
+  <li><%= p.likes %></li>
+  <%= link_to "Edit #{ p.title }", edit_post_path %>
+  <% end %>
+</ul>

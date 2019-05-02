@@ -1,0 +1,10 @@
+<h1>All Posts/h1>
+    <%= button_to "New Post", new_post_path, method: :get%>
+  <hr>
+  <ul>
+    <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post %>
+    </li>
+    <% end %>
+  </ul>

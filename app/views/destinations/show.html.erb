@@ -1,0 +1,14 @@
+<h1>Destination info</h1>
+<hr>
+<h3>Name: <%= @destination.name %></h3>
+<br>
+<h3>Location: <%= @destination.country %></h3>
+<br>
+<ul>
+  <% @destination.posts.each do |d| %>
+  <li>
+    <%= link_to d.title, post_path %>
+  </li>
+  <% end %>
+</ul>
+<%= button_to "Destinations", destinations_path, method: :get%>

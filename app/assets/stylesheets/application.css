@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   background-image: url(https://media.raa.com.au//medialibrary/image/29238/TRAVEL%20EXTRAS%20300x300px.jpg);
+   background-size: contain;
+ }
+
+ input {
+   color: blue;
+ }
+ h3 {
+ }

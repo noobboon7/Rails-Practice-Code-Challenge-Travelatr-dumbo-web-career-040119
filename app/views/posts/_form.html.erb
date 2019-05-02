@@ -1,0 +1,27 @@
+<ol class="errors">
+  <% @post.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+  <% end %>
+</ol>
+
+<%= form_for @post do |f| %>
+
+  <ul>
+    <li>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </li>
+    <li>
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+    </li>
+  </ul>
+
+  <%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+
+  <%= f.collection_select :destination_id, Destination.all, :id, :name %><br>
+  <%= f.submit %>
+
+<% end %>
